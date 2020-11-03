@@ -38,6 +38,7 @@ class ViewController: UIViewController {
             .sink { [weak self] status in
                 switch status {
                 case .loading:
+                    self?.webView.loadHTMLString("", baseURL: nil)
                     self?.spinner.isHidden = false
                     self?.spinner.startAnimating()
                 case .idle:
@@ -51,8 +52,8 @@ class ViewController: UIViewController {
             .receive(on: RunLoop.main)
             .sink { [weak self] result in
                 switch result {
-                case .success(let html):
-                    self?.webView.loadHTMLString(html, baseURL: nil)
+                case .success((let html, let url)):
+                    self?.webView.loadHTMLString(html, baseURL: url)
                 case .failure(let error):
                     self?.webView.loadHTMLString(
 """

@@ -13,7 +13,7 @@ public class Manager {
             .eraseToAnyPublisher()
     }
     
-    public var currentHTML = PassthroughSubject<Result<String, Error>, Never>()
+    public var currentHTML = PassthroughSubject<Result<(String, URL), Error>, Never>()
     
     public func refresh(_ url: URL) {
         _loadingStatus.send(.loading)
@@ -35,7 +35,7 @@ public class Manager {
             }, receiveValue: { [weak self] string in
                 guard let self = self,
                       let html = string else { return }
-                self.currentHTML.send(.success(html))
+                self.currentHTML.send(.success((html, url)))
                 self.finished(cancellableKey)
             })
         
