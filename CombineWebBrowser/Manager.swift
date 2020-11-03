@@ -9,8 +9,10 @@ public enum LoadingStatus {
 
 public class Manager: ObservableObject {
     
+    /// Reflects the loading status of the HTML
     @Published var loadingStatus: LoadingStatus
-    
+
+    /// The currently loaded HTML and the URL it was loaded from
     @Published var currentHTML: Result<(String, URL?), Error>
     
     public func refresh(_ url: URL) {
