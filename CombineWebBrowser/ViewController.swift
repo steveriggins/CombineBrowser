@@ -20,20 +20,12 @@ class ViewController: UIViewController {
     let manager = Manager()
     let inputField = UITextField()
     
-//    override func loadView() {
-//        let view = UIView()
-//        view.frame = CGRect(x: 0,
-//                            y: 0,
-//                            width: 600, height: 1000)
-//        self.view = view
-//    }
-        
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
         
-        manager.loadingStatus
+        manager.$loadingStatus
             .receive(on: RunLoop.main)
             .sink { [weak self] status in
                 switch status {
@@ -47,8 +39,8 @@ class ViewController: UIViewController {
                 }
             }
             .store(in: &cancellables)
-    
-        manager.currentHTML
+        
+        manager.$currentHTML
             .receive(on: RunLoop.main)
             .sink { [weak self] result in
                 switch result {
@@ -56,7 +48,7 @@ class ViewController: UIViewController {
                     self?.webView.loadHTMLString(html, baseURL: url)
                 case .failure(let error):
                     self?.webView.loadHTMLString(
-"""
+                        """
 <!DOCTYPE html>
 <html>
 <head>
@@ -80,7 +72,7 @@ p.error {
 </body>
 </html>
 """, baseURL: nil)
-
+                    
                 }
             }
             .store(in: &cancellables)
@@ -101,10 +93,6 @@ p.error {
         inputField.autocorrectionType = .no
         inputField.tintColor = .black
         inputField.borderStyle = .roundedRect
-//        inputField.layer.borderColor = UIColor.black.cgColor
-//        inputField.layer.cornerRadius = 5
-//        inputField.layer.masksToBounds = true
-//        inputField.layer.borderWidth = 0.5
         
         webView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(webView)
@@ -112,13 +100,13 @@ p.error {
         webView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         webView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         webView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
-
+        
         spinner.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(spinner)
         spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         spinner.isHidden = true
-
+        
     }
     
     @objc
@@ -132,7 +120,7 @@ p.error {
             manager.refresh(url)
         }
     }
-        
+    
     private var cancellables = Set<AnyCancellable>()
 }
 
