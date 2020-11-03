@@ -43,11 +43,12 @@ class ViewController: UIViewController {
         manager.$currentHTML
             .receive(on: RunLoop.main)
             .sink { [weak self] result in
+                guard let self = self else { return }
                 switch result {
                 case .success((let html, let url)):
-                    self?.webView.loadHTMLString(html, baseURL: url)
+                    self.webView.loadHTMLString(html, baseURL: url)
                 case .failure(let error):
-                    self?.webView.loadHTMLString(
+                    self.webView.loadHTMLString(
                         """
 <!DOCTYPE html>
 <html>
