@@ -15,6 +15,7 @@
 		00DA35C5255103140060B8BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00DA35C3255103140060B8BB /* LaunchScreen.storyboard */; };
 		00DA35D0255103140060B8BB /* CombineWebBrowserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DA35CF255103140060B8BB /* CombineWebBrowserTests.swift */; };
 		00DA35DB255103140060B8BB /* CombineWebBrowserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DA35DA255103140060B8BB /* CombineWebBrowserUITests.swift */; };
+		00DA35EC255103230060B8BB /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DA35EB255103230060B8BB /* Manager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		00DA35D6255103140060B8BB /* CombineWebBrowserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CombineWebBrowserUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00DA35DA255103140060B8BB /* CombineWebBrowserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineWebBrowserUITests.swift; sourceTree = "<group>"; };
 		00DA35DC255103140060B8BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00DA35EB255103230060B8BB /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				00DA35BA255103110060B8BB /* SceneDelegate.swift */,
 				00DA35BC255103110060B8BB /* ViewController.swift */,
 				00DA35BE255103110060B8BB /* Main.storyboard */,
+				00DA35EB255103230060B8BB /* Manager.swift */,
 				00DA35C1255103140060B8BB /* Assets.xcassets */,
 				00DA35C3255103140060B8BB /* LaunchScreen.storyboard */,
 				00DA35C6255103140060B8BB /* Info.plist */,
@@ -261,6 +264,7 @@
 				00DA35BD255103110060B8BB /* ViewController.swift in Sources */,
 				00DA35B9255103110060B8BB /* AppDelegate.swift in Sources */,
 				00DA35BB255103110060B8BB /* SceneDelegate.swift in Sources */,
+				00DA35EC255103230060B8BB /* Manager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
